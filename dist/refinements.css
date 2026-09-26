@@ -7,7 +7,7 @@ body { font-size: var(--copy-size); }
 .brand { gap: 15px; mix-blend-mode: screen; }
 .brand-symbol { width: 46px; height: 50px; }
 .brand-symbol img { width: 98px; height: 98px; left: -26px; top: -14px; }
-.brand-wordmark { width: 150px; height: 36px; }
+.brand-wordmark { width: 150px; height: 42px; }
 .brand-wordmark img { width: 228px; height: 228px; left: -38px; top: -150px; }
 .desktop-nav { font-size: 1rem; gap: 25px; }
 .header-cta { font-size: .9375rem; gap: 20px; white-space: nowrap; }

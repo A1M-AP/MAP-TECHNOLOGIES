@@ -4,6 +4,7 @@ const menuButton=document.querySelector('.menu-toggle');const menu=document.quer
 function toggleMenu(open){menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Close navigation':'Open navigation');menu.hidden=!open;menu.inert=!open;document.body.classList.toggle('menu-open',open);document.querySelector('main').inert=open;document.querySelector('footer').inert=open}
 menuButton.addEventListener('click',()=>{const open=menu.hidden;toggleMenu(open);if(open)menu.querySelector('a').focus();else menuButton.focus()});menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden){toggleMenu(false);menuButton.focus()}});
 import {siteConfig} from './config.js';
+import {initInteractions} from './interactions.js';
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const compactViewport=window.matchMedia('(max-width: 820px)');
 const menuViewport=window.matchMedia('(max-width: 1024px)');
@@ -15,6 +16,7 @@ let heroVisible=true;
 function updateMotion(){
   const disable=reducedMotion.matches||motionPaused;
   document.body.classList.toggle('motion-paused',disable);
+  document.dispatchEvent(new Event('map:motionchange'));
   motionButton.setAttribute('aria-label',motionPaused?'Play ambient animation':'Pause ambient animation');
   motionButton.title=motionButton.getAttribute('aria-label');
   motionButton.innerHTML=`<span aria-hidden="true">${motionPaused?'▷':'Ⅱ'}</span>`;
@@ -77,3 +79,4 @@ heroArt.addEventListener('pointermove',e=>{if(reducedMotion.matches||motionPause
 // Fullscreen mobile menu: contain focus while open, return it on Escape.
 document.addEventListener('keydown',e=>{if(e.key!=='Tab'||menu.hidden)return;const focusables=[menuButton,...menu.querySelectorAll('a,button')];const first=focusables[0],last=focusables.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
 document.querySelector('#year').textContent=String(new Date().getFullYear());
+initInteractions({canAnimate:()=>!reducedMotion.matches&&!motionPaused&&!document.hidden});
