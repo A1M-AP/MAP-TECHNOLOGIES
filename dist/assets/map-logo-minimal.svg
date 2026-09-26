@@ -7,7 +7,11 @@
   </defs>
   <g stroke="url(#mark)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
     <path d="m18 3 15 8.5v17L18 37 3 28.5v-17Z"/>
-    <path d="M10 26V14l8 8 8-8v12"/>
+    <g stroke-width="1.15">
+      <path d="M6.5 24v-8l3.25 4 3.25-4v8"/>
+      <path d="m15.5 24 3.25-8L22 24m-5.3-3h4.1"/>
+      <path d="M24.5 24v-8h3.2a2.25 2.25 0 0 1 0 4.5h-3.2"/>
+    </g>
   </g>
   <g stroke="#F5F5F7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
     <path d="M49 22V6l14 11L77 6v16"/>

@@ -69,7 +69,7 @@ Il dominio definitivo non è ancora configurato. I riferimenti al precedente hos
 - `dist/styles.css`: layout responsive e animazioni.
 - `dist/refinements.css`: testi ingranditi e logo integrato senza riquadro nero.
 - `dist/polish.css`: barra fissa traslucida, tipografia, schede arrotondate e transizioni fluide, con layout responsive.
-- `dist/assets/map-logo-minimal.svg`: firma vettoriale per la barra, con esagono, monogramma M e scritta MAP geometrica. Sfondo trasparente e proporzioni adattate a desktop e mobile.
+- `dist/assets/map-logo-minimal.svg`: firma vettoriale per la barra, con le tre lettere MAP dentro l’esagono e scritta MAP geometrica a fianco. Sfondo trasparente e proporzioni adattate a desktop e mobile.
 - `dist/interactions.css` e `dist/interactions.js`: animazioni Software e Systems, cursore e filtro di trasparenza del logo.
 - `dist/schematic.css`: schema infrastrutturale interattivo della sezione 03.
 - `dist/visuals.css`: illustrazioni vettoriali per le tre aree aziendali, le sette soluzioni, il percorso di consulenza e i contatti. La sezione 06 usa orbite aperte con tracce luminose e sei discipline selezionabili, distinte dal circuito hardware della 03. Le animazioni rispettano pausa, visibilità e movimento ridotto.
