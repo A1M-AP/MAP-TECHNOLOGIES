@@ -43,9 +43,12 @@ Il dominio definitivo non è ancora configurato. I riferimenti al precedente hos
 
 - `dist/index.html`: contenuti, sezioni, dialog e metadati.
 - `dist/styles.css`: layout responsive e animazioni.
+- `dist/refinements.css`: testi ingranditi e logo integrato senza riquadro nero.
 - `dist/app.js`: menu, schede interattive, rete MAP e modulo.
 - `dist/config.js`: configurazione dei contatti.
 - `dist/assets/`: logo, film, immagini, font e licenza Manrope.
 - `scripts/`: anteprima locale e verifica di link, asset e struttura.
 
 Il film è silenzioso e ottimizzato per il web. Su mobile, dispositivi a risparmio dati e con movimento ridotto viene mostrata l'immagine statica. Non sono presenti tracker o incorporamenti esterni.
+
+La pagina si apre direttamente, senza schermata introduttiva. Il logo originale è conservato e il suo fondo nero viene eliminato visivamente tramite composizione CSS sulle superfici scure del sito. Il nuovo film del dispositivo che si compone e scompone è rimandato.

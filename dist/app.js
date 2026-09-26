@@ -6,6 +6,7 @@ menuButton.addEventListener('click',()=>{const open=menu.hidden;toggleMenu(open)
 import {siteConfig} from './config.js';
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const compactViewport=window.matchMedia('(max-width: 820px)');
+const menuViewport=window.matchMedia('(max-width: 1024px)');
 const lowPower=navigator.connection?.saveData || (navigator.deviceMemory && navigator.deviceMemory<4);
 const video=document.querySelector('.hero-film');
 const motionButton=document.querySelector('.film-toggle');
@@ -21,17 +22,9 @@ function updateMotion(){
   if(reducedMotion.matches||compactViewport.matches||lowPower)video.style.opacity='0';else video.style.opacity='';
 }
 motionButton.hidden=false;motionButton.addEventListener('click',()=>{motionPaused=!motionPaused;updateMotion()});
-reducedMotion.addEventListener('change',updateMotion);compactViewport.addEventListener('change',()=>{if(!compactViewport.matches)toggleMenu(false);updateMotion()});document.addEventListener('visibilitychange',updateMotion);
+reducedMotion.addEventListener('change',updateMotion);compactViewport.addEventListener('change',updateMotion);menuViewport.addEventListener('change',()=>{if(!menuViewport.matches)toggleMenu(false)});document.addEventListener('visibilitychange',updateMotion);
 if('IntersectionObserver' in window){new IntersectionObserver(entries=>{heroVisible=entries[0].isIntersecting;updateMotion()},{threshold:.05}).observe(document.querySelector('.hero'))}else updateMotion();
 video.addEventListener('error',()=>{video.hidden=true});
-
-// First-visit brand reveal; it never delays page loading or keyboard interaction.
-let seenIntro=false;try{seenIntro=sessionStorage.getItem('map-intro')==='seen';sessionStorage.setItem('map-intro','seen')}catch{}
-if(!seenIntro&&!reducedMotion.matches){
-  const intro=document.createElement('div');intro.className='boot';intro.setAttribute('aria-hidden','true');intro.innerHTML=`<div class="boot-logo"><img src="/assets/map-logo.png" alt=""><svg class="boot-trace" viewBox="0 0 235 235"><path d="M115 35 165 64V118L116 147 64 119V65Z"/><path class="inside" d="M115 36V75M64 72 96 100 115 146M165 89 143 92 117 119V146M81 70 96 82V67Q95 48 109 56V67M96 100 65 118M116 115V88Q128 73 137 87T116 115M134 59Q140 80 148 72M146 102 146 124"/><circle class="boot-node" cx="81" cy="70" r="1.6"/><circle class="boot-node" cx="148" cy="72" r="1.6"/><circle class="boot-node" cx="146" cy="124" r="1.6"/></svg></div>`;document.body.append(intro);
-  const finish=()=>intro.remove();
-  setTimeout(()=>{const logo=intro.firstElementChild;const from=logo.getBoundingClientRect();const to=document.querySelector('.brand-symbol').getBoundingClientRect();intro.animate([{background:'#050505'},{background:'transparent'}],{duration:500,fill:'forwards'});const a=logo.animate([{transform:'translate(0,0) scale(1)',opacity:1},{transform:`translate(${to.left+to.width/2-(from.left+from.width/2)}px,${to.top+to.height/2-(from.top+from.height/2)}px) scale(.19)`,opacity:0}],{duration:550,easing:'cubic-bezier(.65,0,.2,1)',fill:'forwards'});a.onfinish=finish},1250);setTimeout(finish,1950);document.addEventListener('keydown',finish,{once:true});
-}
 
 // Progressive enhancement: the full page remains readable with JavaScript disabled.
 if('IntersectionObserver' in window&&!reducedMotion.matches){
