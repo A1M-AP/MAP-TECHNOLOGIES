@@ -11,11 +11,9 @@ h2 { line-height: 1.09; }
 .section-description,.support-copy,.intro-heading > p { line-height: 1.65; }
 .eyebrow { letter-spacing: .1em; color: #9ba4b0; }
 .site-header { position: fixed; inset: 16px 0 auto; margin-inline: auto; width: min(1320px,calc(100% - 40px)); height: 76px; padding: 0 22px; gap: 20px; border: 1px solid #ffffff15; border-radius: 26px; background: #141416b8; backdrop-filter: blur(24px) saturate(160%); -webkit-backdrop-filter: blur(24px) saturate(160%); box-shadow: 0 8px 36px #0002; }
-.site-header .brand { gap: 10px; }
-.site-header .brand-symbol { width: 37px; height: 42px; }
-.site-header .brand-symbol img { width: 84px; height: 84px; left: -22px; top: -12px; }
-.site-header .brand-wordmark { width: 132px; height: 36px; }
-.site-header .brand-wordmark img { width: 202px; height: 202px; left: -34px; top: -133px; }
+.site-header .brand-minimal { display: flex; align-items: center; width: 184px; min-height: 44px; border-radius: 8px; }
+.site-header .brand-lockup { position: static; width: 184px; height: 42px; max-width: 100%; filter: none; opacity: .94; transition: opacity .3s; }
+.site-header .brand-minimal:hover .brand-lockup { opacity: 1; }
 .desktop-nav { font-size: 14px; gap: 23px; color: #c0c2c8; }
 .desktop-nav a { transition: color .3s; }
 .header-cta { border: 0; background: #f5f5f7; color: #161617; border-radius: 99px; padding: 12px 18px; font-size: 13px; gap: 10px; }
@@ -84,11 +82,8 @@ dialog::backdrop { background: #0008; backdrop-filter: blur(10px); }
 }
 @media(max-width:520px) {
   .site-header { inset: 10px 0 auto; width: calc(100% - 24px); padding-inline: 12px; gap: 8px; border-radius: 22px; height: 66px; }
-  .site-header .brand { gap: 5px; }
-  .site-header .brand-symbol { width: 31px; height: 36px; }
-  .site-header .brand-symbol img { width: 72px; height: 72px; left: -19px; top: -10px; }
-  .site-header .brand-wordmark { width: 105px; height: 31px; }
-  .site-header .brand-wordmark img { width: 164px; height: 164px; left: -28px; top: -108px; }
+  .site-header .brand-minimal { width: 148px; }
+  .site-header .brand-lockup { width: 148px; height: auto; }
   .menu-toggle { padding: 12px 5px; }
   .menu-toggle span { width: 20px; }
   h1 { font-size: clamp(48px,12vw,65px); letter-spacing: -.065em; }

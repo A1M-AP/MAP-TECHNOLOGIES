@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 184 42" fill="none">
+  <defs>
+    <linearGradient id="mark" x1="3" y1="3" x2="33" y2="38" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C6ECF2"/>
+      <stop offset="1" stop-color="#75B5CA"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#mark)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="m18 3 15 8.5v17L18 37 3 28.5v-17Z"/>
+    <path d="M10 26V14l8 8 8-8v12"/>
+  </g>
+  <g stroke="#F5F5F7" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M49 22V6l14 11L77 6v16"/>
+    <path d="m94 22 14-16 14 16"/>
+    <path d="M139 22V6h20c10 0 10 10 0 10h-12"/>
+  </g>
+  <text x="49" y="36" fill="#ABB2BD" font-family="Arial,Helvetica,sans-serif" font-size="7.3" textLength="117" lengthAdjust="spacing">TECHNOLOGIES</text>
+</svg>
