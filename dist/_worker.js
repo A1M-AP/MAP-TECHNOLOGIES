@@ -1,4 +1,4 @@
-// Cloudflare Pages advanced mode; no third-party geolocation service or IP storage.
+// Cloudflare Pages and Workers; no third-party geolocation service or IP storage.
 export default {
   async fetch(request,env) {
     const url=new URL(request.url);

@@ -3,7 +3,20 @@
 Sito ufficiale di MAP Technologies — Models · Architecture · Platforms.
 HTML, CSS e JavaScript, con logo originale, video Higgsfield, schema infrastrutturale animato e font locali. Nessuna dipendenza da installare. Un piccolo Worker Cloudflare gestisce la lingua automatica.
 
-## Pubblicazione su Cloudflare Pages
+## Pubblicazione su Cloudflare Workers da GitHub
+
+Se Cloudflare mostra un campo **Deploy command**, il progetto usa Workers Builds. Il repository include `wrangler.json`: esegue `dist/_worker.js` sul server e pubblica i file di `dist` tramite il binding `ASSETS`. Il file `dist/.assetsignore` esclude il codice server e `_routes.json` dagli asset pubblici.
+
+- Root directory: radice del repository.
+- Build command: lasciare vuoto (il sito è già pronto in `dist`).
+- Deploy command: `npx wrangler deploy`.
+- Worker: `maptechnologiesv01`, già impostato nel campo `name` in `wrangler.json`.
+
+Non usare un comando che carica soltanto gli asset: anche `/api/locale` deve essere distribuito come codice server. Non inserire account ID o token nel repository. La connessione GitHub di Cloudflare gestisce l'autenticazione.
+
+Documentazione: https://developers.cloudflare.com/workers/static-assets/binding/
+
+## Pubblicazione alternativa su Cloudflare Pages
 
 Importa questo repository da **Workers & Pages → Create application → Pages → Import an existing Git repository**.
 
@@ -37,7 +50,7 @@ Il selettore in alto offre **Auto**, **Italiano** ed **English**. La scelta manu
 
 Su Cloudflare Pages, `/api/locale` usa `request.cf.country`: Italia, San Marino e Vaticano ricevono italiano; gli altri paesi ricevono inglese. Se il paese non è disponibile o la richiesta fallisce, viene usata la lingua principale del browser. Non si chiamano servizi esterni di geolocalizzazione e l’applicazione non memorizza l’IP. La risposta non viene memorizzata in cache.
 
-`dist/_worker.js` e `dist/_routes.json` devono essere inclusi nella pubblicazione e nello ZIP. La modalità avanzata è compatibile sia con Git sia con il caricamento diretto di Cloudflare Pages: https://developers.cloudflare.com/pages/get-started/direct-upload/ . Non sono necessarie chiavi API. Il sito resta utilizzabile anche se il rilevamento del paese non risponde.
+Per Pages, `dist/_worker.js` e `dist/_routes.json` devono essere inclusi nella pubblicazione e nello ZIP. La modalità avanzata è compatibile sia con Git sia con il caricamento diretto di Cloudflare Pages: https://developers.cloudflare.com/pages/get-started/direct-upload/ . Uno ZIP Pages non è un pacchetto per il caricamento di soli asset in Workers. Per Workers usare il repository con `wrangler.json`, che configura sia il codice server sia gli asset. Non sono necessarie chiavi API di geolocalizzazione. Il sito resta utilizzabile anche se il rilevamento del paese non risponde.
 
 L’anteprima locale non conosce il paese dell’IP: usa normalmente la lingua del browser. Per simulare un paese durante i controlli, avviare il server con `MAP_PREVIEW_COUNTRY=IT` (variabile solo locale). I test verificano paesi, fallback, precedenza della preferenza manuale e cache. Il rilevamento effettivo all’edge va verificato dopo la pubblicazione su Cloudflare.
 
@@ -60,6 +73,7 @@ Il dominio definitivo non è ancora configurato. I riferimenti al precedente hos
 - `dist/visuals.css`: illustrazioni vettoriali per le tre aree aziendali, le sette soluzioni, il percorso di consulenza e i contatti. La sezione 06 usa orbite aperte con tracce luminose e sei discipline selezionabili, distinte dal circuito hardware della 03. Le animazioni rispettano pausa, visibilità e movimento ridotto.
 - `dist/i18n.js`, `dist/translations.js` e `dist/locale-policy.js`: traduzioni, selettore e precedenze della lingua.
 - `dist/_worker.js` e `dist/_routes.json`: rilevamento del paese su Cloudflare Pages.
+- `wrangler.json` e `dist/.assetsignore`: deploy su Workers con codice server escluso dagli asset pubblici e `/api/locale` eseguito prima della ricerca degli asset.
 - `dist/app.js`: menu, schede interattive, rete MAP e modulo.
 - `dist/config.js`: configurazione dei contatti.
 - `dist/assets/`: logo, film, immagini, font e licenza Manrope.
