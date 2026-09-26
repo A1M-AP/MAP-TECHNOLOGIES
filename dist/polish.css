@@ -11,9 +11,9 @@ h2 { line-height: 1.09; }
 .section-description,.support-copy,.intro-heading > p { line-height: 1.65; }
 .eyebrow { letter-spacing: .1em; color: #9ba4b0; }
 .site-header { position: fixed; inset: 16px 0 auto; margin-inline: auto; width: min(1320px,calc(100% - 40px)); height: 76px; padding: 0 22px; gap: 20px; border: 1px solid #ffffff15; border-radius: 26px; background: #141416b8; backdrop-filter: blur(24px) saturate(160%); -webkit-backdrop-filter: blur(24px) saturate(160%); box-shadow: 0 8px 36px #0002; }
-.site-header .brand-minimal { display: flex; align-items: center; width: 184px; min-height: 44px; border-radius: 8px; }
-.site-header .brand-lockup { position: static; width: 184px; height: 42px; max-width: 100%; filter: none; opacity: .94; transition: opacity .3s; }
-.site-header .brand-minimal:hover .brand-lockup { opacity: 1; }
+.site-header .brand-original { display: flex; align-items: center; gap: 11px; width: 210px; min-height: 48px; border-radius: 8px; }
+.site-header .header-emblem { display: block; width: 44px; height: 48px; flex-shrink: 0; overflow: hidden; }
+.site-header .header-wordmark { display: block; width: 155px; height: 39px; flex-shrink: 0; overflow: hidden; }
 .desktop-nav { font-size: 14px; gap: 23px; color: #c0c2c8; }
 .desktop-nav a { transition: color .3s; }
 .header-cta { border: 0; background: #f5f5f7; color: #161617; border-radius: 99px; padding: 12px 18px; font-size: 13px; gap: 10px; }
@@ -82,8 +82,9 @@ dialog::backdrop { background: #0008; backdrop-filter: blur(10px); }
 }
 @media(max-width:520px) {
   .site-header { inset: 10px 0 auto; width: calc(100% - 24px); padding-inline: 12px; gap: 8px; border-radius: 22px; height: 66px; }
-  .site-header .brand-minimal { width: 148px; }
-  .site-header .brand-lockup { width: 148px; height: auto; }
+  .site-header .brand-original { width: 168px; gap: 8px; }
+  .site-header .header-emblem { width: 36px; height: 40px; }
+  .site-header .header-wordmark { width: 124px; height: 31px; }
   .menu-toggle { padding: 12px 5px; }
   .menu-toggle span { width: 20px; }
   h1 { font-size: clamp(48px,12vw,65px); letter-spacing: -.065em; }
@@ -107,3 +108,90 @@ dialog::backdrop { background: #0008; backdrop-filter: blur(10px); }
   .ai-tabs button { padding-inline: 18px; }
 }
 @media(prefers-reduced-motion:reduce) { .motion-ready .reveal.pending { transform: none; opacity: 1; } }
+
+/* Larger reading sizes, including secondary copy and controls. */
+body { font-size: 20px; }
+h1 { font-size: clamp(68px,8vw,124px); }
+h2 { font-size: clamp(48px,5.2vw,84px); }
+.systems-copy h2,.philosophy h2 { font-size: clamp(48px,4.8vw,78px); }
+.desktop-nav { font-size: 16px; gap: 20px; }
+.header-cta { font-size: 15px; }
+.eyebrow,.hero-content .eyebrow { font-size: 14px; }
+.small-note,.solution-index,.layer-number { font-size: 13px; }
+.hero-description { font-size: clamp(23px,2vw,28px); max-width: 600px; }
+.intro-heading > p,.support-copy,.layer p,.solutions-heading > p,.phase-panel p,.comparison-intro p { font-size: 20px; }
+.section-description { font-size: 23px; max-width: 550px; }
+.button,.text-button { font-size: 18px; }
+.service-list li { font-size: 16px; }
+.layer h3 { font-size: 38px; }
+.solution-title { font-size: 30px; }
+.solution-card .solution-summary { font-size: 19px; }
+.phase-panel h3 { font-size: 27px; }
+.process-tabs button { font-size: 17px; }
+.process-tabs button > span { font-size: 15px; }
+.comparison-intro h3 { font-size: 42px; }
+.comparison-facts > div { font-size: 18px; grid-template-columns: 155px 1fr; }
+.ai-tabs button { font-size: 18px; }
+.comparison-note { font-size: 16px; }
+.ai-principles { font-size: 18px; }
+.boundary-label,.data-stage { font-size: 15px; }
+.local-model strong { font-size: 20px; }
+.local-model div > span,.boundary-footnote,.diagram-note { font-size: 15px; }
+.component-node > span { font-size: 16px; }
+.schematic-note,.ecosystem .map-message { font-size: 17px; }
+.orbit-node { font-size: 16px; }
+.contact-bottom p { font-size: 23px; }
+.hero-bottom p { font-size: 16px; }
+.footer-brand > p,.footer-column h3,.footer-column a,.footer-column button { font-size: 16px; }
+.footer-bottom { font-size: 14px; }
+.dialog-intro,#solution-dialog .section-description,.privacy-dialog p:not(.eyebrow) { font-size: 19px; }
+#project-form label { font-size: 17px; }
+#project-form input,#project-form textarea,#project-form select { font-size: 18px; }
+.form-note,.form-status { font-size: 16px; }
+.language-code { font-size: 13px; }
+.language-option { font-size: 16px; }
+@media(max-width:1180px) {
+  .intro-heading > p { max-width: 650px; }
+  .process-tabs button { font-size: 16px; }
+}
+@media(max-width:820px) {
+  h1 { font-size: clamp(60px,9.5vw,86px); }
+  h2,.systems-copy h2,.philosophy h2 { font-size: clamp(44px,6.5vw,65px); }
+  .hero-description { font-size: 23px; max-width: 500px; }
+  .section-description,.contact-bottom p { font-size: 22px; }
+  .layer h3 { font-size: 32px; }
+  .layer p { font-size: 18px; }
+}
+@media(max-width:520px) {
+  .hero { min-height: 820px; }
+  h1 { font-size: clamp(51px,12.8vw,70px); }
+  h2,.systems-copy h2,.philosophy h2 { font-size: clamp(38px,10.3vw,50px); }
+  html[lang=it] .systems-copy h2,html[lang=it] .ai-top h2 { font-size: clamp(36px,10.2vw,48px); }
+  .hero-description { font-size: 22px; }
+  .hero-content .eyebrow { font-size: 11px; }
+  .eyebrow { font-size: 13px; }
+  .section-description,.contact-bottom p { font-size: 21px; }
+  .intro-heading > p,.support-copy,.solutions-heading > p,.phase-panel p,.comparison-intro p,.layer p { font-size: 19px; }
+  .layer h3 { font-size: 36px; }
+  .button,.text-button { font-size: 17px; }
+  .solution-title { font-size: 30px; }
+  .solution-card .solution-summary { font-size: 19px; }
+  .phase-panel h3 { font-size: 24px; }
+  .comparison-intro h3 { font-size: 36px; }
+  .comparison-facts > div { font-size: 17px; grid-template-columns: 1fr; gap: 7px; }
+  .comparison-facts dt { color: #e2e5eb; }
+  .ai-tabs button { font-size: 17px; padding-inline: 16px; }
+  .component-node > span { font-size: 13px; }
+  .orbit-node { font-size: 13px; }
+  .schematic-note,.ecosystem .map-message { font-size: 15px; }
+  .local-model { flex-wrap: wrap; }
+  .local-model > div { flex: 1; min-width: 120px; }
+  .boundary-label,.data-stage { font-size: 14px; }
+  .local-model div > span,.boundary-footnote,.diagram-note { font-size: 14px; }
+}
+@media(max-width:360px) {
+  .site-header { gap: 6px; padding-inline: 10px; }
+  .site-header .brand-original { width: 152px; gap: 6px; }
+  .site-header .header-emblem { width: 32px; height: 36px; }
+  .site-header .header-wordmark { width: 114px; height: 29px; }
+}

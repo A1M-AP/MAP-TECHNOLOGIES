@@ -69,7 +69,7 @@ Il dominio definitivo non è ancora configurato. I riferimenti al precedente hos
 - `dist/styles.css`: layout responsive e animazioni.
 - `dist/refinements.css`: testi ingranditi e logo integrato senza riquadro nero.
 - `dist/polish.css`: barra fissa traslucida, tipografia, schede arrotondate e transizioni fluide, con layout responsive.
-- `dist/assets/map-logo-minimal.svg`: firma vettoriale per la barra, con le tre lettere MAP dentro l’esagono e scritta MAP geometrica a fianco. Sfondo trasparente e proporzioni adattate a desktop e mobile.
+- La barra usa il logo originale `dist/assets/map-logo.png`, con ritagli SVG precisi per simbolo e scritta, fondo nero reso trasparente e dimensioni maggiori.
 - `dist/interactions.css` e `dist/interactions.js`: animazioni Software e Systems, cursore e filtro di trasparenza del logo.
 - `dist/schematic.css`: schema infrastrutturale interattivo della sezione 03.
 - `dist/visuals.css`: illustrazioni vettoriali per le tre aree aziendali, le sette soluzioni, il percorso di consulenza e i contatti. La sezione 06 usa orbite aperte con tracce luminose e sei discipline selezionabili, distinte dal circuito hardware della 03. Le animazioni rispettano pausa, visibilità e movimento ridotto.
@@ -84,4 +84,4 @@ Il dominio definitivo non è ancora configurato. I riferimenti al precedente hos
 
 Il film è silenzioso e ottimizzato per il web. Su mobile, dispositivi a risparmio dati e con movimento ridotto viene mostrata l'immagine statica. Non sono presenti tracker o incorporamenti esterni.
 
-La pagina si apre direttamente, senza schermata introduttiva. La barra superiore usa una firma SVG minimale e trasparente. Il logo originale è conservato nel footer, dove un filtro SVG rende trasparenti i pixel neri durante il rendering. Le sezioni Software e Systems hanno animazioni continue, sospese fuori schermo e quando il movimento è disattivato. Il cursore aggiuntivo compare solo con il mouse e rispetta le preferenze di movimento ridotto. Il nuovo film Higgsfield del dispositivo che si compone e scompone resta rimandato.
+La pagina si apre direttamente, senza schermata introduttiva. La barra superiore e il footer usano il logo originale. Un filtro SVG rende trasparenti i pixel neri durante il rendering, mantenendo disegno e colori. La barra mostra il marchio ingrandito e ritagliato con le proporzioni corrette. Le sezioni Software e Systems hanno animazioni continue, sospese fuori schermo e quando il movimento è disattivato. Il cursore aggiuntivo compare solo con il mouse e rispetta le preferenze di movimento ridotto. Il nuovo film Higgsfield del dispositivo che si compone e scompone resta rimandato.
