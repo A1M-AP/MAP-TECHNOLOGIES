@@ -1,4 +1,5 @@
 export const italian = {
+  'Automatic':'Automatico','Based on your location':'In base alla tua posizione',
   'MAP / CONNECTED SYSTEM':'MAP / SISTEMA CONNESSO','ECOSYSTEM':'ECOSISTEMA',
   'PRIVATE AI / ARCHITECTURE':'AI PRIVATA / ARCHITETTURA',
   'Interactive infrastructure diagram':'Schema interattivo dell’infrastruttura',

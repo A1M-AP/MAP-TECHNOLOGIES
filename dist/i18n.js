@@ -1,3 +1,4 @@
+import {initLanguagePicker} from './language-picker.js';
 import {italian} from './translations.js';
 import {chooseLanguage} from './locale-policy.js';
 let language='en';
@@ -62,6 +63,7 @@ export function initLanguage() {
     try {if(choice==='auto')localStorage.removeItem('map-language');else localStorage.setItem('map-language',choice);} catch {}
     apply();
   });
+  initLanguagePicker(selector);
   apply();
   // No IP address is requested, returned or stored: only Cloudflare's country code.
   const controller=new AbortController();

@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="/languages.css">
   <link rel="stylesheet" href="/schematic.css">
   <link rel="stylesheet" href="/visuals.css">
+  <link rel="stylesheet" href="/polish.css">
   <script type="module" src="/app.js"></script>
 </head>
 <body>
@@ -36,7 +37,14 @@
     <a class="brand" href="#home" aria-label="MAP Technologies home"><span class="brand-symbol"><img src="/assets/map-logo.png" alt="" width="1280" height="1280"></span><span class="brand-wordmark"><img src="/assets/map-logo.png" alt="MAP Technologies" width="1280" height="1280"></span></a>
     <nav class="desktop-nav" aria-label="Main navigation"><a href="#company">Company</a><a href="#software">Software</a><a href="#ai">AI</a><a href="#systems">Systems</a><a href="#solutions">Solutions</a><a href="#contact">Contact</a></nav>
     <button class="header-cta" data-project>Start a project <span aria-hidden="true">↗</span></button>
-    <div class="language-control"><span aria-hidden="true">◎</span><select id="language-select" aria-label="Language"><option value="auto">Auto</option><option value="it" lang="it">Italiano</option><option value="en" lang="en">English</option></select></div>
+    <div class="language-control">
+<select id="language-select" aria-label="Language"><option value="auto">Auto</option><option value="it" lang="it">Italiano</option><option value="en" lang="en">English</option></select>
+<button class="language-trigger" type="button" aria-label="Language" aria-expanded="false" aria-controls="language-panel" hidden><svg class="language-globe" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><path d="M3 12h18"/></svg><span class="language-code" data-no-i18n>EN</span><svg class="language-chevron" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 4.5 3 3 3-3"/></svg></button>
+<div class="language-panel" id="language-panel" hidden><fieldset><legend>Language</legend>
+<label class="language-option"><input type="radio" name="site-language" value="it"><span lang="it" data-no-i18n>Italiano</span><span class="language-check" aria-hidden="true">✓</span></label>
+<label class="language-option"><input type="radio" name="site-language" value="en"><span lang="en" data-no-i18n>English</span><span class="language-check" aria-hidden="true">✓</span></label>
+<label class="language-option language-auto"><input type="radio" name="site-language" value="auto"><span><span class="language-option-title">Automatic</span><small>Based on your location</small></span><span class="language-check" aria-hidden="true">✓</span></label>
+</fieldset></div></div>
     <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
   </header>
   <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" inert hidden><a href="#company">Company</a><a href="#software">Software</a><a href="#ai">AI</a><a href="#systems">Systems</a><a href="#solutions">Solutions</a><a href="#contact">Contact</a><button data-project>Start a project ↗</button><p>MODELS · ARCHITECTURE · PLATFORMS</p></nav>

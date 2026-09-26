@@ -68,10 +68,12 @@ Il dominio definitivo non è ancora configurato. I riferimenti al precedente hos
 - `dist/index.html`: contenuti, sezioni, dialog e metadati.
 - `dist/styles.css`: layout responsive e animazioni.
 - `dist/refinements.css`: testi ingranditi e logo integrato senza riquadro nero.
+- `dist/polish.css`: barra fissa traslucida, tipografia, schede arrotondate e transizioni fluide, con layout responsive.
 - `dist/interactions.css` e `dist/interactions.js`: animazioni Software e Systems, cursore e filtro di trasparenza del logo.
 - `dist/schematic.css`: schema infrastrutturale interattivo della sezione 03.
 - `dist/visuals.css`: illustrazioni vettoriali per le tre aree aziendali, le sette soluzioni, il percorso di consulenza e i contatti. La sezione 06 usa orbite aperte con tracce luminose e sei discipline selezionabili, distinte dal circuito hardware della 03. Le animazioni rispettano pausa, visibilità e movimento ridotto.
 - `dist/i18n.js`, `dist/translations.js` e `dist/locale-policy.js`: traduzioni, selettore e precedenze della lingua.
+- `dist/language-picker.js` e `dist/languages.css`: selettore compatto IT/EN con globo e pannello Italiano, English e Automatico. Supporta tastiera, Escape, chiusura esterna e conservazione della scelta; il select nativo resta disponibile senza JavaScript.
 - `dist/_worker.js` e `dist/_routes.json`: rilevamento del paese su Cloudflare Pages.
 - `wrangler.json` e `dist/.assetsignore`: deploy su Workers con codice server escluso dagli asset pubblici e `/api/locale` eseguito prima della ricerca degli asset.
 - `dist/app.js`: menu, schede interattive, rete MAP e modulo.
