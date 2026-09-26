@@ -2,7 +2,7 @@
 
 Generata con lo strumento Imagegen integrato, senza CLI e senza Higgsfield.
 
-File finale: `dist/assets/ai-module.png` (1536 × 1024). Integrato nel sito con movimento lento, illuminazione al passaggio del mouse e scansione discreta. Nessun testo incorporato: l’immagine funziona in entrambe le lingue.
+Versione precedente, sostituita nel sito da uno schema vettoriale animato su richiesta dell’utente. L’immagine (1536 × 1024) è conservata in `C:/MAP TECHNOLOGIES/generated-assets/ai-module-imagegen.png` e nella cronologia Git; non viene caricata dal sito attuale.
 
 ## Prompt finale
 

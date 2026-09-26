@@ -1,7 +1,7 @@
 # MAP TECHNOLOGIES
 
 Sito ufficiale di MAP Technologies — Models · Architecture · Platforms.
-HTML, CSS e JavaScript, con logo originale, video Higgsfield, immagine del modulo AI generata con Imagegen e font locali. Nessuna dipendenza da installare. Un piccolo Worker Cloudflare gestisce la lingua automatica.
+HTML, CSS e JavaScript, con logo originale, video Higgsfield, schema infrastrutturale animato e font locali. Nessuna dipendenza da installare. Un piccolo Worker Cloudflare gestisce la lingua automatica.
 
 ## Pubblicazione su Cloudflare Pages
 
@@ -56,6 +56,7 @@ Il dominio definitivo non è ancora configurato. I riferimenti al precedente hos
 - `dist/styles.css`: layout responsive e animazioni.
 - `dist/refinements.css`: testi ingranditi e logo integrato senza riquadro nero.
 - `dist/interactions.css` e `dist/interactions.js`: animazioni Software e Systems, cursore e filtro di trasparenza del logo.
+- `dist/schematic.css`: schema vettoriale della sezione Systems, con nucleo AI, quattro componenti selezionabili e flussi animati. Supporta tastiera, touch, pausa e movimento ridotto.
 - `dist/i18n.js`, `dist/translations.js` e `dist/locale-policy.js`: traduzioni, selettore e precedenze della lingua.
 - `dist/_worker.js` e `dist/_routes.json`: rilevamento del paese su Cloudflare Pages.
 - `dist/app.js`: menu, schede interattive, rete MAP e modulo.

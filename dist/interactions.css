@@ -18,14 +18,6 @@
 .software-visual::after { content: ''; position: absolute; inset: -12px; border-radius: 20px; pointer-events: none; background: radial-gradient(260px circle at var(--pointer-x) var(--pointer-y), #69d8f00b, transparent 75%); opacity: 0; transition: opacity .5s; }
 .software-visual.pointer-active::after { opacity: 1; }
 
-.systems-image { perspective: 1200px; }
-.systems-scene { position: relative; overflow: hidden; isolation: isolate; }
-.systems-scene > img { height: auto; animation: system-drift 12s ease-in-out infinite; will-change: transform; }
-.systems-scene::after { content: ''; position: absolute; inset: 10% 12%; pointer-events: none; background: radial-gradient(ellipse at var(--pointer-x) var(--pointer-y), #51c7ed12, transparent 65%); mix-blend-mode: screen; }
-.system-scan { position: absolute; inset: 14% 15%; overflow: hidden; pointer-events: none; mask-image: linear-gradient(90deg, transparent, #000 24%, #000 76%, transparent); }
-.system-scan::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 22%; border-bottom: 1px solid #81e9ff80; background: linear-gradient(transparent, #39cafa08); animation: system-scan 8s ease-in-out infinite; }
-.system-frame { position: absolute; inset: 15% 17%; border: 1px solid #75d9f028; pointer-events: none; clip-path: polygon(0 0, 24px 0, 24px 1px, 1px 1px, 1px 24px, 0 24px, 0 0, 100% 0, 100% 24px, calc(100% - 1px) 24px, calc(100% - 1px) 1px, calc(100% - 24px) 1px, calc(100% - 24px) 0, 100% 0, 100% 100%, calc(100% - 24px) 100%, calc(100% - 24px) calc(100% - 1px), calc(100% - 1px) calc(100% - 1px), calc(100% - 1px) calc(100% - 24px), 100% calc(100% - 24px), 100% 100%, 0 100%, 0 calc(100% - 24px), 1px calc(100% - 24px), 1px calc(100% - 1px), 24px calc(100% - 1px), 24px 100%, 0 100%); animation: frame-breathe 6s ease-in-out infinite; }
-
 .cursor-orbit { position: fixed; top: 0; left: 0; z-index: 80; width: 28px; height: 28px; pointer-events: none; opacity: 0; transition: opacity .2s; }
 .cursor-orbit.is-visible { opacity: 1; }
 .cursor-orbit::before, .cursor-orbit::after { content: ''; position: absolute; inset: 0; border: 1px solid #84d9e780; border-radius: 50%; transition: transform .25s, border-color .25s, background .25s; }
@@ -44,9 +36,6 @@
 @keyframes data-travel { 0%,10% { transform: translateX(-100%); } 75%,100% { transform: translateX(100%); } }
 @keyframes row-process { 0%,100% { transform: scaleX(.55); opacity: .45; } 50% { transform: scaleX(1); opacity: 1; } }
 @keyframes code-blink { 50% { opacity: .15; } }
-@keyframes system-drift { 0%,100% { transform: scale(1.025) translate3d(-.3%, .4%, 0); } 50% { transform: scale(1.06) translate3d(.3%, -.6%, 0); } }
-@keyframes system-scan { 0%,10% { transform: translateY(-110%); opacity: 0; } 25% { opacity: .8; } 80% { opacity: .6; } 95%,100% { transform: translateY(470%); opacity: 0; } }
-@keyframes frame-breathe { 50% { opacity: .35; } }
 
 /* Pause background work when a visual is offscreen or motion is disabled. */
 .software-visual:not(.is-in-view) *, .software-visual:not(.is-in-view) *::after,
@@ -57,10 +46,9 @@
 .page-hidden .systems-image *, .page-hidden .systems-image *::before { animation-play-state: paused; }
 .motion-paused .cursor-orbit, .page-hidden .cursor-orbit { display: none; }
 @media (hover: none), (pointer: coarse) { .cursor-orbit { display: none; } }
-@media (max-width: 820px) { .software-visual { overflow: clip; overflow-clip-margin: 16px; } .system-frame { inset: 12% 18%; } }
+@media (max-width: 820px) { .software-visual { overflow: clip; overflow-clip-margin: 16px; } }
 @media (max-width: 520px) { .systems-image { margin-inline: -22px; } }
 @media (prefers-reduced-motion: reduce) {
   .cursor-orbit { display: none; }
-  .software-window, .floating-code, .systems-scene > img { animation: none; }
-  .system-scan, .system-frame { display: none; }
+  .software-window, .floating-code { animation: none; }
 }

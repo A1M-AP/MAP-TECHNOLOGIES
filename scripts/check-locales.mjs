@@ -16,7 +16,7 @@ for(const country of ['IT','US',undefined,'XX','invalid']) {
 }
 assert.equal((await worker.fetch({url:'https://example.com/api/locale',method:'POST'},{})).status,405);
 let forwarded=false;
-const request=new Request('https://example.com/assets/ai-module.png');
+const request=new Request('https://example.com/assets/map-logo.png');
 const response=await worker.fetch(request,{ASSETS:{fetch(req){assert.equal(req,request);forwarded=true;return new Response('asset');}}});
 assert.equal(await response.text(),'asset');assert(forwarded);
 console.log('Validated IP-country selection, browser fallback, saved preference priority, uncached endpoint and static asset forwarding.');

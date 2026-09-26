@@ -1,4 +1,12 @@
 export const italian = {
+  'PRIVATE AI / ARCHITECTURE':'AI PRIVATA / ARCHITETTURA',
+  'Interactive infrastructure diagram':'Schema interattivo dell’infrastruttura',
+  'Compute':'Calcolo','Memory':'Memoria','Storage':'Archivio','Network':'Rete','AI CORE':'NUCLEO AI',
+  'One architecture. Every component connected.':'Un’architettura. Ogni componente connesso.',
+  'Compute power for your AI models.':'Potenza di calcolo per i tuoi modelli AI.',
+  'Fast memory for active workloads.':'Memoria veloce per le attività in esecuzione.',
+  'Your models and data, stored locally.':'Modelli e dati conservati nella tua infrastruttura.',
+  'Secure connections across your infrastructure.':'Connessioni sicure tra i tuoi sistemi.',
   'MAP Technologies designs custom software, AI infrastructure and intelligent systems for companies that want technology built around their needs.':'MAP Technologies progetta software su misura, infrastrutture AI e sistemi intelligenti per le aziende che cercano tecnologia costruita sulle proprie esigenze.',
   'Advanced technology. Made simple. Software, intelligent systems and private AI infrastructure built around your business.':'Tecnologia avanzata, semplice da usare. Software, sistemi intelligenti e infrastrutture AI private costruiti intorno alla tua impresa.',
   'Software, intelligent systems and private AI infrastructure built around your business.':'Software, sistemi intelligenti e infrastrutture AI private costruiti intorno alla tua impresa.',

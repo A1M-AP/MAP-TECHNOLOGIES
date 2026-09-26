@@ -1,17 +1,15 @@
 export function initInteractions({canAnimate}) {
   const visuals=[...document.querySelectorAll('.software-visual,.systems-image')];
   const hardware=document.querySelector('.systems-image');
-  const photo=hardware.querySelector('img');
-  const scene=document.createElement('div');
-  scene.className='systems-scene';
-  photo.before(scene);
-  scene.append(photo);
-  for(const className of ['system-scan','system-frame']) {
-    const decoration=document.createElement('span');
-    decoration.className=className;
-    decoration.setAttribute('aria-hidden','true');
-    scene.append(decoration);
-  }
+  const descriptions={compute:'Compute power for your AI models.',memory:'Fast memory for active workloads.',storage:'Your models and data, stored locally.',network:'Secure connections across your infrastructure.'};
+  const componentButtons=[...hardware.querySelectorAll('[data-component]')];
+  const componentNote=hardware.querySelector('.schematic-note');
+  componentButtons.forEach(button=>button.addEventListener('click',()=>{
+    const selected=button.getAttribute('aria-pressed')!=='true';
+    componentButtons.forEach(node=>node.setAttribute('aria-pressed',String(selected&&node===button)));
+    hardware.dataset.activeComponent=selected?button.dataset.component:'';
+    componentNote.textContent=selected?descriptions[button.dataset.component]:'One architecture. Every component connected.';
+  }));
   if('IntersectionObserver' in window) {
     const observer=new IntersectionObserver(entries=>entries.forEach(entry=>entry.target.classList.toggle('is-in-view',entry.isIntersecting)),{threshold:.08});
     visuals.forEach(el=>observer.observe(el));
