@@ -52,4 +52,3 @@
   .systems-image .systems-caption { font-size: 9px; }
 }
 @media(prefers-reduced-motion:reduce) { .schematic * { animation: none!important; transition: none!important; } .core-halo { opacity: .3; } }
-
