@@ -5,9 +5,10 @@ function toggleMenu(open){menuButton.setAttribute('aria-expanded',String(open));
 menuButton.addEventListener('click',()=>{const open=menu.hidden;toggleMenu(open);if(open)menu.querySelector('a').focus();else menuButton.focus()});menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menu.hidden){toggleMenu(false);menuButton.focus()}});
 import {siteConfig} from './config.js';
 import {initInteractions} from './interactions.js';
+import {initLanguage,t} from './i18n.js';
 const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
 const compactViewport=window.matchMedia('(max-width: 820px)');
-const menuViewport=window.matchMedia('(max-width: 1024px)');
+const menuViewport=window.matchMedia('(max-width: 1180px)');
 const lowPower=navigator.connection?.saveData || (navigator.deviceMemory && navigator.deviceMemory<4);
 const video=document.querySelector('.hero-film');
 const motionButton=document.querySelector('.film-toggle');
@@ -65,8 +66,15 @@ const solutionDetails={
 let chosenSolution='';
 document.querySelectorAll('[data-solution]').forEach(button=>button.addEventListener('click',()=>{chosenSolution=button.dataset.solution;const [description,features]=solutionDetails[chosenSolution];document.querySelector('#solution-title').textContent=chosenSolution;document.querySelector('#solution-description').textContent=description;const list=document.querySelector('#solution-features');list.replaceChildren(...features.map(text=>{const li=document.createElement('li');li.textContent=text;return li}));openDialog(solutionDialog,button)}));
 document.querySelector('#solution-project').addEventListener('click',()=>{const trigger=returnFocus;solutionDialog.close();openProject(chosenSolution,trigger)});
-if(siteConfig.contactEmail){document.querySelector('#submit-project').innerHTML='Prepare email <span aria-hidden="true">↗</span>';document.querySelector('#form-note').textContent=`Your email app will open a draft to ${siteConfig.contactEmail}. Review it before sending. This website does not store your enquiry.`;document.querySelector('#privacy-form-copy').textContent='Project details remain in your browser until you choose to prepare an email. Your email app opens a draft to MAP Technologies for you to review and send. The website does not store your enquiry.'}
-document.querySelector('#project-form').addEventListener('submit',e=>{e.preventDefault();const data=new FormData(e.currentTarget);const body=`MAP TECHNOLOGIES — PROJECT BRIEF\n\nName: ${data.get('name')}\nEmail: ${data.get('email')}\nInterest: ${data.get('interest')}\n\nProject\n${data.get('message')}\n`;const status=document.querySelector('#form-status');if(siteConfig.contactEmail){window.location.href=`mailto:${encodeURIComponent(siteConfig.contactEmail)}?subject=${encodeURIComponent('MAP project enquiry — '+data.get('interest'))}&body=${encodeURIComponent(body)}`;status.textContent='Your email draft is ready to review in your email app. Nothing has been sent by this website.'}else{const url=URL.createObjectURL(new Blob([body],{type:'text/plain;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='MAP-project-brief.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status.textContent='Your project brief has been saved. It has not been sent to MAP.'}});
+function updateContactLanguage(){
+  if(!siteConfig.contactEmail)return;
+  document.querySelector('#submit-project').innerHTML=t('Prepare email')+' <span aria-hidden="true">↗</span>';
+  document.querySelector('#form-note').textContent=t('Your email app will open a draft to {email}. Review it before sending. This website does not store your enquiry.',{email:siteConfig.contactEmail});
+  document.querySelector('#privacy-form-copy').textContent=t('Project details remain in your browser until you choose to prepare an email. Your email app opens a draft to MAP Technologies for you to review and send. The website does not store your enquiry.');
+}
+document.addEventListener('map:languagechange',updateContactLanguage);
+updateContactLanguage();
+document.querySelector('#project-form').addEventListener('submit',e=>{e.preventDefault();const data=new FormData(e.currentTarget);const body=`${t('MAP TECHNOLOGIES — PROJECT BRIEF')}\n\n${t('Name')}: ${data.get('name')}\nEmail: ${data.get('email')}\n${t('Interest')}: ${t(data.get('interest'))}\n\n${t('Project')}\n${data.get('message')}\n`;const status=document.querySelector('#form-status');if(siteConfig.contactEmail){window.location.href=`mailto:${encodeURIComponent(siteConfig.contactEmail)}?subject=${encodeURIComponent(t('MAP project enquiry — ')+t(data.get('interest')))}&body=${encodeURIComponent(body)}`;status.textContent='Your email draft is ready to review in your email app. Nothing has been sent by this website.'}else{const url=URL.createObjectURL(new Blob([body],{type:'text/plain;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='MAP-project-brief.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status.textContent='Your project brief has been saved. It has not been sent to MAP.'}});
 
 // Signal propagation follows the SVG connections. Touch and keyboard use the same nodes.
 const nodeMessages={Software:'Software connects your everyday work.',Hardware:'Hardware gives intelligence a foundation.',AI:'AI turns information into useful outcomes.',Data:'Your data brings context to the system.',Infrastructure:'Infrastructure connects every layer.',People:'People give technology its purpose.'};
@@ -80,3 +88,4 @@ heroArt.addEventListener('pointermove',e=>{if(reducedMotion.matches||motionPause
 document.addEventListener('keydown',e=>{if(e.key!=='Tab'||menu.hidden)return;const focusables=[menuButton,...menu.querySelectorAll('a,button')];const first=focusables[0],last=focusables.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}});
 document.querySelector('#year').textContent=String(new Date().getFullYear());
 initInteractions({canAnimate:()=>!reducedMotion.matches&&!motionPaused&&!document.hidden});
+initLanguage();

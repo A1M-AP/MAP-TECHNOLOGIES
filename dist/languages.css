@@ -1,0 +1,39 @@
+.site-header { gap: 22px; }
+.desktop-nav { gap: 20px; }
+.language-control { display: flex; align-items: center; gap: 5px; flex-shrink: 0; color: #b8c2c9; }
+.language-control > span { font-size: 20px; color: #86cddd; }
+.language-control select { color: #e5eaee; background: #101316; border: 1px solid #ffffff25; border-radius: 4px; padding: 10px 3px 10px 8px; font-size: 13px; max-width: 87px; cursor: pointer; }
+.language-control option { color: #e5eaee; background: #101316; }
+.systems-scene > img { aspect-ratio: 1.25; object-fit: contain; object-position: center; mask-image: radial-gradient(ellipse at center, #000 45%, transparent 76%); }
+.system-frame { display: none; }
+.system-scan { inset: 22% 16%; opacity: .45; }
+html[lang=it] .workflow-head { font-size: 23px; }
+html[lang=it] .workflow-line span { padding: 9px 7px; }
+html[lang=it] .hero-description { max-width: 550px; }
+html[lang=it] .map-node { font-size: .8rem; }
+@media (max-width: 1180px) {
+  .language-control { margin-left: auto; }
+  .site-header { justify-content: flex-start; }
+}
+@media (max-width: 520px) {
+  .site-header { gap: 10px; }
+  .language-control > span { display: none; }
+  .language-control select { width: 66px; padding-inline: 4px; font-size: 12px; }
+  .menu-toggle { padding: 10px 3px; }
+  .systems-scene > img { aspect-ratio: 1.35; }
+  html[lang=it] .hero-content .eyebrow { font-size: .65rem; letter-spacing: .04em; }
+  html[lang=it] .systems-copy h2 { font-size: clamp(2rem, 10vw, 2.625rem); }
+  html[lang=it] .ai-top h2 { font-size: clamp(1.9rem, 9.6vw, 2.625rem); }
+  html[lang=it] .workflow-head { font-size: 20px; }
+  html[lang=it] .workflow-line { gap: 3px; }
+  html[lang=it] .workflow-line span { padding: 8px 5px; }
+}
+@media (max-width: 360px) {
+  .site-header { padding-inline: 14px; gap: 8px; }
+  .site-header .brand { gap: 6px; }
+  .site-header .brand-symbol { width: 32px; height: 38px; }
+  .site-header .brand-symbol img { width: 72px; height: 72px; top: -10px; left: -19px; }
+  .site-header .brand-wordmark { width: 109px; height: 33px; }
+  .site-header .brand-wordmark img { width: 168px; height: 168px; top: -112px; left: -30px; }
+  html[lang=it] .hero-content .eyebrow { font-size: .59rem; }
+}

@@ -80,7 +80,7 @@ h2 { font-size: clamp(2.75rem, 4.8vw, 5rem); }
   .brand-symbol { width: 42px; height: 46px; }
   .brand-symbol img { width: 90px; height: 90px; left: -24px; top: -13px; }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1180px) {
   .desktop-nav, .header-cta { display: none; }
   .site-header { justify-content: space-between; }
   .menu-toggle { display: flex; flex-direction: column; gap: 7px; background: none; padding: 14px; }
