@@ -1,4 +1,5 @@
 export const italian = {
+  'MAP / CONNECTED SYSTEM':'MAP / SISTEMA CONNESSO','ECOSYSTEM':'ECOSISTEMA',
   'PRIVATE AI / ARCHITECTURE':'AI PRIVATA / ARCHITETTURA',
   'Interactive infrastructure diagram':'Schema interattivo dell’infrastruttura',
   'Compute':'Calcolo','Memory':'Memoria','Storage':'Archivio','Network':'Rete','AI CORE':'NUCLEO AI',

@@ -76,11 +76,16 @@ document.addEventListener('map:languagechange',updateContactLanguage);
 updateContactLanguage();
 document.querySelector('#project-form').addEventListener('submit',e=>{e.preventDefault();const data=new FormData(e.currentTarget);const body=`${t('MAP TECHNOLOGIES — PROJECT BRIEF')}\n\n${t('Name')}: ${data.get('name')}\nEmail: ${data.get('email')}\n${t('Interest')}: ${t(data.get('interest'))}\n\n${t('Project')}\n${data.get('message')}\n`;const status=document.querySelector('#form-status');if(siteConfig.contactEmail){window.location.href=`mailto:${encodeURIComponent(siteConfig.contactEmail)}?subject=${encodeURIComponent(t('MAP project enquiry — ')+t(data.get('interest')))}&body=${encodeURIComponent(body)}`;status.textContent='Your email draft is ready to review in your email app. Nothing has been sent by this website.'}else{const url=URL.createObjectURL(new Blob([body],{type:'text/plain;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='MAP-project-brief.txt';link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status.textContent='Your project brief has been saved. It has not been sent to MAP.'}});
 
-// Signal propagation follows the SVG connections. Touch and keyboard use the same nodes.
+// The same component selection works with mouse, touch and keyboard.
 const nodeMessages={Software:'Software connects your everyday work.',Hardware:'Hardware gives intelligence a foundation.',AI:'AI turns information into useful outcomes.',Data:'Your data brings context to the system.',Infrastructure:'Infrastructure connects every layer.',People:'People give technology its purpose.'};
-const map=document.querySelector('.philosophy-map');let signalTimer;
-function signal(node){clearTimeout(signalTimer);map.classList.add('is-signaling');document.querySelectorAll('.map-node').forEach(n=>n.classList.toggle('is-active',n===node));map.querySelector('.map-message').textContent=nodeMessages[node.dataset.node];const circles=[...map.querySelectorAll('.network-node')];circles.forEach((circle,i)=>{if(!reducedMotion.matches&&!motionPaused)circle.animate([{opacity:.4,r:2},{opacity:1,r:4,offset:.4},{opacity:.65,r:2.7}],{duration:900,delay:i*65})});signalTimer=setTimeout(()=>map.classList.remove('is-signaling'),1700)}
-document.querySelectorAll('.map-node').forEach(node=>{node.addEventListener('pointerenter',e=>{if(e.pointerType==='mouse')signal(node)});node.addEventListener('focus',()=>signal(node));node.addEventListener('click',()=>signal(node))});
+const ecosystem=document.querySelector('.ecosystem');
+const ecosystemNodes=[...ecosystem.querySelectorAll('[data-node]')];
+ecosystemNodes.forEach(node=>node.addEventListener('click',()=>{
+  const selected=node.getAttribute('aria-pressed')!=='true';
+  ecosystemNodes.forEach(item=>item.setAttribute('aria-pressed',String(selected&&item===node)));
+  ecosystem.dataset.activeNode=selected?node.dataset.node:'';
+  ecosystem.querySelector('.map-message').textContent=selected?nodeMessages[node.dataset.node]:'One connected system.';
+}));
 const heroArt=document.querySelector('.hero-art');let frame=null;
 heroArt.addEventListener('pointermove',e=>{if(reducedMotion.matches||motionPaused||compactViewport.matches||frame)return;frame=requestAnimationFrame(()=>{const r=heroArt.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5;const y=(e.clientY-r.top)/r.height-.5;document.querySelector('.hero-network').style.transform=`translate(${x*12}px,${y*10}px)`;frame=null})});heroArt.addEventListener('pointerleave',()=>{document.querySelector('.hero-network').style.transform=''});
 

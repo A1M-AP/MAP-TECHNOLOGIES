@@ -1,5 +1,5 @@
 export function initInteractions({canAnimate}) {
-  const visuals=[...document.querySelectorAll('.software-visual,.systems-image')];
+  const visuals=[...document.querySelectorAll('.software-visual,.systems-image,.philosophy-map')];
   const hardware=document.querySelector('.systems-image');
   const descriptions={compute:'Compute power for your AI models.',memory:'Fast memory for active workloads.',storage:'Your models and data, stored locally.',network:'Secure connections across your infrastructure.'};
   const componentButtons=[...hardware.querySelectorAll('[data-component]')];
